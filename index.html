@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Website</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="images/SM_logo.png">
+</head>
+<body>
+	<div class="main">
+		<div class="top" id="top__">
+			<div class="tab" id="tab__">
+				<ul class="options">
+					<li><a class="icon" id="menu_btn"><i class="fa fa-bars"></i> <span>Menu</span></a></li>
+					<li><a onclick="home()" class="active">Home</a></li>
+					<li><a onclick="about_us()">About Us</a></li>
+					<li><a onclick="contact()">Contact</a></li>
+				</ul>
+				<div class="menu" id="tab_menu" style="display: none;">
+					<div class="tab_items">
+						<a onclick="home()" class="active"><i style="font-size: 20px;" class="fa fa-home" aria-hidden="true"></i> Home</a>
+						<a onclick="about_us()"><i style="font-size: 20px;" class="	fa fa-info-circle" aria-hidden="true"></i> About Us</a>
+						<a onclick="contact()"><i style="font-size: 15px;" class="fa fa-envelope" aria-hidden="true"></i> Contact</a>
+					</div>
+					<br>
+					<div class="menu_items"> 
+						<a onclick="window.open('')"><img width="25px" height="25px" src="images/techtips.png"></img> TechTips</a>
+					</div>
+				</div>
+			</div>
+			<div class="header">
+				<div class="progress-bar" id="myBar"></div>
+			</div>
+			<div class="logo"><span><b>SM</b> Technology</span></div>
+		</div>
+		<div class="scroll_top"><a onclick="scrollToTop()"><i class="fa fa-arrow-up"></i></a></div>
+		<div class="content" onclick="">
+<h1>Hello Technophiles!</h1><hr>
+<p>We are creating open-source softwares and tools which you will find convenient to use and will help you to go deeper in this tech-world. In this website, you will see what we have made for you. </p>
+			<div class="features">
+				<div class="fastedit">
+					<img id="img"src="images/txteditor.png">
+					<div>
+							<h1>Fast Edit 2.0</h1>
+							<p style="text-align: left;">FastEdit 2 is a powerful text-editing software especially designed for python programmers. It competes with other famous text-editor softwares such as MicroSoft Visual Studio Code, Sublime Text Editor, Notepad ++, and Eric TextEditor. As it is open source, you can change the text-editor with accordance to your choice.
+								You can customize the software by changing the codes of fe_setting files. It uses QsciScintilla and PyQt5 to enhance coding and webdesigning. 
+							</p>
+							<p style="text-align: left;">You can read full documentation from Documentation website of Fast Edit 2. The interesting fact is that, I myself develped the software so you can contact with me and can help me to make it more productive and supportive.</p>
+							<button>Try It Now!</button>
+					</div>
+				</div>
+
+				<div class="techtips">
+					<div>
+							<h1>Techtips</h1>
+							<p style="text-align: left;">Techtips is an online site which gives sollutions to frequent and tough problems
+								in android or windows. The website will also tell you some important and useful tips to make your tech-journey more convenient. However, the number of problems will be less as the website is new.
+							</p>
+							<p style="text-align: left;">This website is also developed and maintained by me so mistakes and mis-information may occur. If someone wants to support me, you can contact me and join SM Technology.</p>
+							<button>Go to Techtips</button>
+					</div>
+					<img id="img" src="images/techtips.png">
+				</div>
+			</div>
+
+		</div>
+		<div class="footer">
+			<div class="d1">© 2023 SM Technology | Designed by Shaurya Mishra.</div>
+			<div class="d2">
+				<div></div>
+			</div>
+			
+		</div>
+	</div>
+	<script>
+var menu = document.getElementById("top__")
+menu.addEventListener('contextmenu', event => event.preventDefault());
+
+var menu = document.getElementById("img")
+menu.addEventListener('contextmenu', event => event.preventDefault());
+// When the user scrolls the page, execute myFunction 
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
+
+$(document).ready(function(){
+  $("#menu_btn").click(function(){
+  	var x = $("#tab_menu").css("display")
+    $("#tab_menu").fadeToggle("slow", "swing");
+    if (x === "block"){
+     $("#menu_btn").css("background-color","#171717")
+    }
+    else {
+    	$("#menu_btn").css("background-color","#000")
+    	$("#menu_btn").css("z-index","0")
+    	$("#menu_btn").css("color","#ababab")
+    };
+  });
+});
+$(document).ready(function(){
+  $(".content").click(function(){
+    $("#tab_menu").fadeOut("slow","swing");
+    $("#menu_btn").css("background-color","#171717");
+  });
+});
+
+function home() {
+	window.location.href="#";
+}
+
+function scrollToTop() {
+
+	window.scrollTo({top: 0, behavior: 'smooth'});
+	const scrollToTop = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop;
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / 20);
+  }
+};
+scrollToTop();
+
+}
+
+
+</script>
+</body>
+</html>
